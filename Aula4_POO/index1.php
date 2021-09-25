@@ -1,4 +1,4 @@
-9<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,14 +25,13 @@
         print_r($c2);
         echo "Eu tenho uma caneta modelo {$c2->getModelo()} tamanho {$c2->getPonta()}\n";
 
-        $c3=new Caneta ("CASIO","Vermelho",69);
+       /* $c3=new Caneta ("CASIO","Vermelho",69);
         print_r($c3);
         echo "Eu tenho uma caneta modelo {$c3->getModelo()} tamanho {$c3->getPonta()}\n";
 
         $c4=new Caneta ("ROLEX","Verde",9);
         print_r($c4);
-        echo "Eu tenho uma caneta modelo {$c4->getModelo()} tamanho {$c4->getPonta()}\n";
-
+        echo "Eu tenho uma caneta modelo {$c4->getModelo()} tamanho {$c4->getPonta()}\n";*/
 
 
     ?>
