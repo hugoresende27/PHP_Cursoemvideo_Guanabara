@@ -38,7 +38,7 @@
         $p2->mensalidade();
         
         echo "\n\tLEVANTAMENTOS\n";
-        $p2->levantar(1000);
+        $p2->levantar(1000); 
         $p1->levantar(330);
         $p2->levantar(638);
 
