@@ -8,15 +8,16 @@ class Conta{
     private $status;
     ///////////////////////
 
-    public function __construct($num, $tip, $don)
+    ///////////metodo contrutor //////////////////
+    function __construct()
     {
-        $this->numConta=$num;
-        $this->tipo=$tip;
-        $this->dono=$don;
-        $this->saldo=0;
-        $this->status=false;
+        $this->setSaldo(0);
+        $this->setStatus(false);
+        echo "\nConta criada com sucesso!\n";
 
     }
+    /////////////////////////
+
     //metodos especiais, setters e getters /////////////
     public function setnumConta($n){
         $this->numConta=$n;
@@ -32,7 +33,7 @@ class Conta{
         return $this->tipo;
     }
  
-    public function setDono($d){
+    public function setDono($d){        //funcao setDono recebe o nome como parametro Ex::$obj_criado->setDono("Hugo");
         $this->dono=$d;
     }
     public function getDono(){
@@ -55,46 +56,48 @@ class Conta{
     /////////////////////////////////////////////
 
     //metodos especificos //////////////////////////////
-    public function abrirConta($t)
-    {
+    public function abrirConta($t)      //metodo abrirConta recebe parametro tipo, pode ser Prazo ou Poupanca
+    {                                   //Ex::$Obj->abrirConta("Poupanca");
         $this->setTipo($t);
         $this->setStatus(true);
-        if ($this->tipo="Prazo")
-        {
-            $this->setSaldo(50);
+        if ($t=="Prazo")
+        {                               //ao criar um novo objeto, o saldo vai ser 50
+            $this->setSaldo(50);        //se abrir conta a prazo recebe 50 de bonus
         }
-        else if ($this->tipo=="Poupanca") 
-        {
-            $this->setSaldo(150);
+        else if ($t=="Poupanca") 
+        {                               //ao criar um novo objeto, o saldo vai ser 150
+            $this->setSaldo(150);       //se abrir conta poupanca recebe 150 de bonus
         }
     }
 
     public function fecharConta()
     {
-     if ($this->saldo > 0)
+     if ($this->getSaldo() > 0)
      {
-         echo "Existe saldo, não pode encerrar...";
+         echo "\nExiste saldo, não pode encerrar...\n";
      }   
-     else if ($this->saldo<0)
+     else if ($this->getSaldo()<0)
      {
-         echo "Saldo negativo, regularize a situação...";
+         echo "\nSaldo negativo, regularize a situação...\n";
      }
      else
      {
          $this->setStatus(false);
+         echo "\n\tConta encerrada...\n";
      }
     }
 
 
     public function depositar($val)
     {
-        if ($this->getStatus())
+        if ($this->getStatus())     //se status for true
         {
-            $this->setSaldo($val+getSaldo()); 
+            $this->setSaldo($val+$this->getSaldo()); 
+            echo "Depósito de $val, saldo:: {$this->getSaldo()}\n";
         }
         else
         {
-            echo "Erro, conta nao existe";
+            echo "\nErro, conta nao existe\n";
         }
          
     }
@@ -102,41 +105,42 @@ class Conta{
     {
         if ($this->getStatus())
         {
-            if ($this->saldo>$val)
+            if ($this->getSaldo()>=$val)
             {
-                $this->setSaldo($val-getSaldo());
+                $this->setSaldo($this->getSaldo()-$val);
+                echo "Levantamento de $val, saldo:: {$this->getSaldo()}\n";
             }
             else
             {
-                echo "Saldo insuficiente";
+                echo "\nSaldo insuficiente na conta de {$this->getDono()}\n";
             }
         }
         else
         {
-            echo "Erro, conta nao existe";
+            echo "Erro, conta nao existe\n";
         }
         
     }
     public function mensalidade()
     {
-        $mensalidade = 0;
-        if ($this->tipo=="Prazo")
+       
+        if ($this->getTipo()=="Prazo")
         {
             $mensalidade = 20;
         }
-        else if ($this->tipo=="Poupanca")
+        else if ($this->getTipo()=="Poupanca")
         {
             $mensalidade = 12;
         }
         if ($this->getStatus())
         {
-            if ($this->saldo>$mensalidade)
+            if ($this->getSaldo()>$mensalidade)
             {
-                $this->setSaldo(getSaldo()-$mensalidade);
+                $this->setSaldo($this->getSaldo()-$mensalidade);
             }
-            else if ($this->saldo<$mensalidade)
+            else if ($this->getSaldo()<$mensalidade)
             {
-                echo "Saldo insuficiente para pagar a mensalidade...";
+                echo "Saldo insuficiente para pagar a mensalidade...\n";
             }
         }
     }
