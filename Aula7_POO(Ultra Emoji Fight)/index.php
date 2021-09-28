@@ -20,14 +20,14 @@
     $lutador[4]= new Lutador("UFOCobol",  "Portugal",     44,    1.84,    90,   19,   88,   20);
     $lutador[5]= new Lutador("Nadaart",   "Portugal",     17,    1.58,    87,   19,    1,    2);
 
-
+/*  zona de testes
     $lutador[5]->status();
     $lutador[5]->apresentar();
 
     $lutador[3]->apresentar();
     $lutador[3]->ganharLuta();
     $lutador[3]->status();
-    
+ */   
     ?>
     
 </body>
