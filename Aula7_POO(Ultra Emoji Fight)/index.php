@@ -28,7 +28,8 @@
     $lutador[3]->apresentar();
     $lutador[3]->ganharLuta();
     $lutador[3]->status();
- */   
+ */ 
+  
     $luta1= new Luta();
     $luta1->marcarLuta($lutador[0],$lutador[1]);
     $luta1->lutar();
@@ -40,6 +41,12 @@
     $luta3= new Luta();
     $luta3->marcarLuta($lutador[3],$lutador[4]);
     $luta3->lutar();
+    echo"<p>-------------------OUTRA LUTA----------------";
+    $luta4= new Luta();
+    $luta4->marcarLuta($lutador[4],$lutador[4]);
+    $luta4->lutar();
+
+    
 
     ?>
     
