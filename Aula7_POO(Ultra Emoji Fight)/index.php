@@ -10,6 +10,7 @@
     
     <?php
     require_once "Lutador.php";
+    require_once 'Luta.php';
     $lutador = array();
 
 //  $lutador[ ]= new Lutador( nome ,    nacionalidade , idade , altura , peso , vit , der , emp)
@@ -28,6 +29,18 @@
     $lutador[3]->ganharLuta();
     $lutador[3]->status();
  */   
+    $luta1= new Luta();
+    $luta1->marcarLuta($lutador[0],$lutador[1]);
+    $luta1->lutar();
+    echo"<p>-------------------OUTRA LUTA----------------";
+    $luta2= new Luta();
+    $luta2->marcarLuta($lutador[1],$lutador[3]);
+    $luta2->lutar();
+    echo"<p>-------------------OUTRA LUTA----------------";
+    $luta3= new Luta();
+    $luta3->marcarLuta($lutador[3],$lutador[4]);
+    $luta3->lutar();
+
     ?>
     
 </body>
