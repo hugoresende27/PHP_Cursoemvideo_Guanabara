@@ -1,6 +1,6 @@
 <?php
 
-abstract class Pessoa           //metodo abstracto, não permite instanciar objetos
+abstract class Pessoa           //classe abstracta, não permite instanciar objetos
 {
     protected $nome;        //se estiver protected em vez de private vai me permitir aceder aos atributos diretamente
     protected $idade;       //se estiver private apenas posso aceder ao metodos para setNome, setIdade, setSexo
