@@ -15,7 +15,7 @@ class Video implements AcoesVideo
         $this->setViews(1);
         $this->setLikes(0);
         $this->setReproduzir(false);
-        $this->avaliacao="Por avaliar";
+        $this->avaliacao=0;
         
     }
 
@@ -32,8 +32,9 @@ class Video implements AcoesVideo
         return $this->avaliacao;
     }
 
-    public function setAvaliacao($avaliacao) {
-        $this->avaliacao = $avaliacao;
+    public function setAvaliacao($ava) {
+        $media =($this->avaliacao+$ava) / $this->views;
+        $this->avaliacao = $media;
     }
 
     public function getViews() {
